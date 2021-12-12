@@ -1,9 +1,10 @@
-﻿using CardGame.Common;
-using CardGame.Configuration;
-using CardGame.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using CardGame.Common;
+using CardGame.Contracts;
+using CardGame.Configuration;
+using CardGame.Models;
 
 namespace CardGame
 {
@@ -16,7 +17,7 @@ namespace CardGame
 
         private bool _isInitialized = false;
 
-        private readonly Deck _deck;
+        private readonly BaseDeck _deck;
 
         private readonly List<Card> _board;
 
@@ -131,7 +132,7 @@ namespace CardGame
                     {
                         // If Draw Pile is empty, shuffle discard pile
                         Utilities.ShuffleCards(_players[i].DiscardPile);
-                        
+
                         // Move Cards from discard pile to draw pile
                         foreach (var card in _players[i].DiscardPile)
                         {

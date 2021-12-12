@@ -1,16 +1,21 @@
-﻿using CardGame.Common;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using CardGame.Common;
+using CardGame.Contracts;
 
 namespace CardGame.Models
 {
     /// <summary>
     /// The Deck.
     /// </summary>
-    internal class Deck
+    internal class Deck : BaseDeck
     {
         private readonly List<Card> _cards;
-        public List<Card> Cards { get { return _cards; } }
+
+        /// <summary>
+        /// Gets Collection of Cards
+        /// </summary>
+        public override List<Card> Cards { get { return _cards; } }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Deck"/> class.
@@ -29,7 +34,7 @@ namespace CardGame.Models
         /// <param name="suit">
         /// The suit.
         /// </param>
-        public void CreateDeck(int deckSize, string[] suit = null)
+        public override void CreateDeck(int deckSize, string[] suit = null)
         {
             int suitSize = suit == null || (suit.Length <= 0 && suit.Length >= 4) ? 4 : suit.Length;
 
@@ -47,7 +52,7 @@ namespace CardGame.Models
                 }
             }
 
-            if(totalCardsInDeck < deckSize)
+            if (totalCardsInDeck < deckSize)
             {
                 ConsoleExtension.WriteLine($"Discarding {deckSize - totalCardsInDeck} cards from Deck. Total Card in Deck is {totalCardsInDeck}.", ConsoleColor.Red);
             }
@@ -56,7 +61,7 @@ namespace CardGame.Models
         /// <summary>
         /// Shuffle Deck.
         /// </summary>
-        public void ShuffleDeck()
+        public override void ShuffleDeck()
         {
             Utilities.ShuffleCards(_cards);
         }
