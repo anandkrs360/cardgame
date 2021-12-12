@@ -7,7 +7,6 @@ Requires .NET 5.0
 To download the game:
 
     git clone https://github.com/anandkrs360/cardgame.git
-    cd CardGame
 
 To buid game:
 
@@ -18,7 +17,7 @@ To run game:
 
     dotnet run
 
-To run test case
+To run test casess
 
     cd ..
     cd CardGame.Tests
@@ -49,6 +48,7 @@ Number of Cards: 40 Cards (Deck Size can be configured)
 
 # EXAMPLE OUTPUT
 
+```
 Player 1 (20 cards): 8
 Player 2 (20 cards): 1
 Player 1 wins this round
@@ -68,4 +68,4 @@ Player 2 (1 cards): 3
 Player 1 wins this round
 
 Player 1 wins the game!
-
+```
